@@ -15,7 +15,7 @@ If the build was successful. Default: `true`
 
 ## Outputs
 
-There are no outputs
+There are no outputs.
 
 ## Example usage
 ```
