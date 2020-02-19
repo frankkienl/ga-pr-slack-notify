@@ -17,7 +17,8 @@ If the build was successful. Default: `true`
 There are no outputs
 
 ## Example usage
-
+```
 uses: frankkienl/ga-pr-slack-notify@master
 with:
   webhook: ${{ secrects.slack_webhook }}
+```
