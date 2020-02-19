@@ -19,8 +19,9 @@ try {
   const webhook = core.getInput('webhook');
 
   //TODO: Remove test logging
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
+  const payload = github.context.payload;
+  const payloadJSON = JSON.stringify(github.context.payload, undefined, 2);
+  console.log(`The event payload: ${payloadJSON}`);
   console.log("github.context.issue.number: " + github.context.issue.number);
   console.log("github");
   console.log(github);
