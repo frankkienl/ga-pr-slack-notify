@@ -60,7 +60,7 @@ try {
     });
 
     console.log(text);
-    //postRequest(webhook, data)
+    postRequest(webhook, data)
   }
 } catch (error) {
   core.setFailed(error.message)
