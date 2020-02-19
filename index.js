@@ -52,7 +52,7 @@ try {
   if (github.context.eventName === "pull_request"){
     //TODO: Icon
     const success = core.getInput('success');
-    let text = `*PR:* <${payload.pull_request._links.html}|#${payload.pull_request.number}>\n`;
+    let text = `*PR:* <${payload.pull_request._links.html.href}|#${payload.pull_request.number}>\n`;
     text += `*Title:* ${payload.pull_request.title}\n`;
     text += `*By:* ${github.context.actor}\n`;
     if (success === 'true' || success === true){
