@@ -19,8 +19,9 @@ try {
   const webhook = core.getInput('webhook');
 
   //TODO: Remove test logging
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
+  const payload = github.context.payload;
+  const payloadJSON = JSON.stringify(github.context.payload, undefined, 2);
+  console.log(`The event payload: ${payloadJSON}`);
   console.log("github.context.issue.number: " + github.context.issue.number);
   console.log("github");
   console.log(github);
@@ -28,14 +29,14 @@ try {
   console.log(github.context);
   console.log("github.context.payload");
   console.log(github.context.payload);
-  // console.log("github.context.issue");
-  // console.log(github.context.issue);
+  console.log("github.context.issue");
+  console.log(github.context.issue);
   // console.log("github.context.action");
   // console.log(github.context.action);
   // console.log("github.context.repo");
   // console.log(github.context.repo);
-  // console.log("github.context.actor");
-  // console.log(github.context.actor);
+  console.log("github.context.actor");
+  console.log(github.context.actor);
   // console.log("github.context.workflow");
   // console.log(github.context.workflow);
   // console.log("github.context.ref");
@@ -49,6 +50,7 @@ try {
   console.log(payload.pull_request);
 
   if (github.context.eventName === "pull_request"){
+    //TODO: Icon
     const success = core.getInput('success');
     let text = `*PR:* <${payload.pull_request._links.html}|#${payload.pull_request.number}>\n`;
     text += `*Title:* ${payload.pull_request.title}\n`;
