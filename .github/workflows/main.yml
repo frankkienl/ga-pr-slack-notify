@@ -8,6 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: debug logging
+      run: |
+        echo ${{ github.event.ref }}
+        echo $GITHUB_REF
+        echo github.event.ref
+        
     - name: Test Slack action
       if: startsWith(github.event.ref, 'feature/startsWith')
       uses: frankkienl/ga-pr-slack-notify@master
