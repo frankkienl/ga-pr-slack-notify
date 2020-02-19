@@ -20,16 +20,27 @@ try {
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(`The event payload: ${payload}`);
   console.log("github.context.issue.number: " + github.context.issue.number);
+  console.log("github");
   console.log(github);
+  console.log("github.context");
   console.log(github.context);
+  console.log("github.context.payload");
   console.log(github.context.payload);
+  console.log("github.context.issue");
   console.log(github.context.issue);
+  console.log("github.context.action");
   console.log(github.context.action);
+  console.log("github.context.repo");
   console.log(github.context.repo);
+  console.log("github.context.actor");
   console.log(github.context.actor);
+  console.log("github.context.workflow");
   console.log(github.context.workflow);
+  console.log("github.context.ref");
   console.log(github.context.ref);
+  console.log("github.context.sha");
   console.log(github.context.sha);
+  console.log("github.context.eventName");
   console.log(github.context.eventName);
   //POST Request
   const data = JSON.stringify({
