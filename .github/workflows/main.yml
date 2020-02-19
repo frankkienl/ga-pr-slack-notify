@@ -13,6 +13,8 @@ jobs:
         echo ${{ github.event.ref }}
         echo $GITHUB_REF
         echo github.event.ref
+        echo ${{ github.pull_request.title }}
+        echo ${{ github.pull_request.head.ref }}
         
     - name: Test Slack action
       if: startsWith(github.event.ref, 'feature/startsWith')
