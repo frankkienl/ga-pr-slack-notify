@@ -17,6 +17,8 @@ const https = require('https');
 
 try {
   const webhook = core.getInput('webhook');
+
+  //TODO: Remove test logging
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(`The event payload: ${payload}`);
   console.log("github.context.issue.number: " + github.context.issue.number);
