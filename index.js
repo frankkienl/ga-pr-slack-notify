@@ -42,9 +42,16 @@ try {
   console.log(github.context.sha);
   console.log("github.context.eventName");
   console.log(github.context.eventName);
+
+  const text =
+    "PR: #"
+    + github.context.issue.number
+    + "\n"
+    + "";
+
   //POST Request
   const data = JSON.stringify({
-    text: ""
+    text: text
   });
   //postRequest(webhook, data)
 } catch (error) {
