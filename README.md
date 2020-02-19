@@ -13,10 +13,6 @@ Requires little work to implement.
 
 If the build was successful. Default: `true`
 
-## Outputs
-
-There are no outputs.
-
 ## Example usage
 ```
 uses: frankkienl/ga-pr-slack-notify@master
