@@ -8,6 +8,10 @@ This action sends a message to slack with info about the pull_request.
 
 **Required** The slack webhook. Default: `""`.
 
+### `success`
+
+If the build was successful. Default: `true`
+
 ## Outputs
 
 ### `time`
