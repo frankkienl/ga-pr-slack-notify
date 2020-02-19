@@ -9,6 +9,6 @@ jobs:
 
     steps:
     - name: Test Slack action
-      uses: frankkie/ga-pr-slack-notify@HEAD
+      uses: frankkie/ga-pr-slack-notify@master
       with:
         webhook: ${{ secrets.slack_webhook }}
