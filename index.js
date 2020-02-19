@@ -2,68 +2,34 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const https = require('https');
 
-// try {
-//   // `who-to-greet` input defined in action metadata file
-//   const nameToGreet = core.getInput('who-to-greet');
-//   console.log(`Hello ${nameToGreet}!`);
-//   const time = (new Date()).toTimeString();
-//   core.setOutput("time", time);
-//   // Get the JSON webhook payload for the event that triggered the workflow
-//   const payload = JSON.stringify(github.context.payload, undefined, 2)
-//   console.log(`The event payload: ${payload}`);
-// } catch (error) {
-//   core.setFailed(error.message);
-// }
-
 try {
   const webhook = core.getInput('webhook');
 
-  //TODO: Remove test logging
   const payload = github.context.payload;
-  const payloadJSON = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payloadJSON}`);
-  console.log("github.context.issue.number: " + github.context.issue.number);
-  console.log("github");
-  console.log(github);
-  console.log("github.context");
-  console.log(github.context);
-  console.log("github.context.payload");
-  console.log(github.context.payload);
-  console.log("github.context.issue");
-  console.log(github.context.issue);
-  // console.log("github.context.action");
-  // console.log(github.context.action);
-  // console.log("github.context.repo");
-  // console.log(github.context.repo);
-  console.log("github.context.actor");
-  console.log(github.context.actor);
-  // console.log("github.context.workflow");
-  // console.log(github.context.workflow);
-  // console.log("github.context.ref");
-  // console.log(github.context.ref);
-  // console.log("github.context.sha");
-  // console.log(github.context.sha);
-  // console.log("github.context.eventName");
-  // console.log(github.context.eventName);
 
   console.log("payload.pull_request");
   console.log(payload.pull_request);
 
   if (github.context.eventName === "pull_request"){
-    //TODO: Icon
     const success = core.getInput('success');
-    let text = `*PR:* <${payload.pull_request._links.html.href}|#${payload.pull_request.number}>\n`;
-    text += `*Title:* ${payload.pull_request.title}\n`;
+
+    let iconUrl = "https://raw.githubusercontent.com/frankkienl/ga-pr-slack-notify/master/";
+
+    let text = `*PR:* <${payload.pull_request._links.html.href}|#${payload.pull_request.number} - ${payload.pull_request.title}>\n`;
     text += `*By:* ${github.context.actor}\n`;
+
     if (success === 'true' || success === true){
       text += `*Build success!*\n`;
+      iconUrl += "icon_build_success.png";
     } else {
       text += `*Build failed!*\n`;
+      iconUrl += "icon_build_failed.png";
     }
 
     //POST Request
     const data = JSON.stringify({
-      text: text
+      text: text,
+      icon_url: iconUrl
     });
 
     console.log(text);
