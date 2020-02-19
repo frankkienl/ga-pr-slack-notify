@@ -4,9 +4,9 @@ This action sends a message to slack with info about the pull_request.
 
 ## Inputs
 
-### `who-to-greet`
+### `webhook`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The slack webhook. Default: `""`.
 
 ## Outputs
 
