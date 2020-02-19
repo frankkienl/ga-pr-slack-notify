@@ -28,14 +28,14 @@ try {
   console.log(github.context);
   console.log("github.context.payload");
   console.log(github.context.payload);
-  // console.log("github.context.issue");
-  // console.log(github.context.issue);
+  console.log("github.context.issue");
+  console.log(github.context.issue);
   // console.log("github.context.action");
   // console.log(github.context.action);
   // console.log("github.context.repo");
   // console.log(github.context.repo);
-  // console.log("github.context.actor");
-  // console.log(github.context.actor);
+  console.log("github.context.actor");
+  console.log(github.context.actor);
   // console.log("github.context.workflow");
   // console.log(github.context.workflow);
   // console.log("github.context.ref");
