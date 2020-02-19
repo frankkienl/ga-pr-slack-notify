@@ -6,7 +6,7 @@ This action sends a message to slack with info about the pull_request.
 
 ### `webhook`
 
-**Required** The slack webhook. Default: `""`.
+**Required**  - The slack webhook. Default: `""`.
 
 ### `success`
 
