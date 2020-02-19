@@ -1,0 +1,14 @@
+name: Test this action
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Test Slack action
+      uses: frankkie/ga-pr-slack-notify@HEAD
+      with:
+        webhook: ${{ secrets.slack_webhook }}
