@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Test Slack action
-      if: startsWith(github.pull_request.head.ref, 'feature/startsWith')
+      if: startsWith(${{github.pull_request.head.ref}}, 'feature/startsWith')
       uses: frankkienl/ga-pr-slack-notify@master
       with:
         webhook: ${{ secrets.slack_webhook }}
