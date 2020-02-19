@@ -1,6 +1,6 @@
-# Hello world javascript action
+# Slack notifier
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action sends a message to slack with info about the pull_request.
 
 ## Inputs
 
