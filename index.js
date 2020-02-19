@@ -43,17 +43,25 @@ try {
   console.log("github.context.eventName");
   console.log(github.context.eventName);
 
-  const text =
-    "PR: #"
-    + github.context.issue.number
-    + "\n"
-    + "";
+  if (github.context.eventName === "pull_request"){
+    const success = core.getInput('success');
+    let text = `*PR:* <${payload.pull_request._links.html}|#${payload.pull_request.number}>\n`;
+    text += `*Title:* ${payload.pull_request.title}\n`;
+    text += `*By:* ${github.context.actor}\n`;
+    if (success === 'true' || success === true){
+      text += `*Build success!*\n`;
+    } else {
+      text += `*Build failed!*\n`;
+    }
 
-  //POST Request
-  const data = JSON.stringify({
-    text: text
-  });
-  //postRequest(webhook, data)
+    //POST Request
+    const data = JSON.stringify({
+      text: text
+    });
+
+    console.log(text);
+    //postRequest(webhook, data)
+  }
 } catch (error) {
   core.setFailed(error.message)
 }

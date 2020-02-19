@@ -5,6 +5,10 @@ inputs:
     description: 'Slack Webhook url'
     required: true
     default: ''
+  success:
+    description: 'use success() here'
+    required: false
+    default: 'true'
 runs:
   using: 'node12'
   main: 'index.js'
