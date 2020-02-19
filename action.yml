@@ -1,13 +1,10 @@
 name: 'PR Slack Notifier'
 description: 'Slack notification with buils status of pull request'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  webhook:
+    description: 'Slack Webhook url'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+    default: ''
 runs:
   using: 'node12'
   main: 'index.js'
