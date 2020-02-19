@@ -1,7 +1,6 @@
 # Slack notifier
 
 This action sends a message to slack with info about the pull_request.
-Requires little work to implement.
 
 ## Inputs
 
