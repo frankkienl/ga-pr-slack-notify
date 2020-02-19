@@ -4,18 +4,20 @@ This action sends a message to slack with info about the pull_request.
 
 ## Inputs
 
-### `who-to-greet`
+### `webhook`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The slack webhook. Default: `""`.
+
+### `success`
+
+If the build was successful. Default: `true`
 
 ## Outputs
 
-### `time`
-
-The time we greeted you.
+There are no outputs
 
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1
+uses: frankkienl/ga-pr-slack-notify@master
 with:
-  who-to-greet: 'Mona the Octocat'
+  webhook: ${{ secrects.slack_webhook }}
