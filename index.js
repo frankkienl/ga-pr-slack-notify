@@ -46,6 +46,7 @@ try {
   console.log(github.context.eventName);
 
   if (github.context.eventName === "pull_request"){
+    //TODO: Icon
     const success = core.getInput('success');
     let text = `*PR:* <${payload.pull_request._links.html}|#${payload.pull_request.number}>\n`;
     text += `*Title:* ${payload.pull_request.title}\n`;
