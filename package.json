@@ -1,0 +1,16 @@
+{
+  "name": "ga-pr-slack-notify",
+  "version": "1.0.0",
+  "description": "Github Actions, Slack Notifier for pull requests.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "FrankkieNL",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.0"
+  }
+}
