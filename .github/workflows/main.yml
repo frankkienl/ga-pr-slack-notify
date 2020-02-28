@@ -8,8 +8,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: debug logging
+      env: 
+        EVENT: ${{ toJson(github.event) }}
+        PR_REF: ${{ github.event.pull_request.head.ref }}
+      run: |
+        echo $GITHUB_REF
+        echo $EVENT
+        echo $PR_REF
+        
     - name: Test Slack action
-      if: startsWith(github.event.ref, 'feature/startsWith')
       uses: frankkienl/ga-pr-slack-notify@master
       with:
+        success: true
         webhook: ${{ secrets.slack_webhook }}
