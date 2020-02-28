@@ -18,7 +18,7 @@ jobs:
         echo $PR_REF
         
     - name: Test Slack action
-      if: startsWith(github.event.pull_request.head.ref, 'feature/startsWith')
       uses: frankkienl/ga-pr-slack-notify@master
       with:
+        success: true
         webhook: ${{ secrets.slack_webhook }}
