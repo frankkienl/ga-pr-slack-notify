@@ -7,8 +7,8 @@ try {
 
   const payload = github.context.payload;
 
-  console.log("payload.pull_request");
-  console.log(payload.pull_request);
+  //console.log("payload.pull_request");
+  //console.log(payload.pull_request);
 
   if (github.context.eventName === "pull_request"){
     const success = core.getInput('success');
@@ -32,7 +32,8 @@ try {
       icon_url: iconUrl
     });
 
-    console.log(text);
+    //console.log(text);
+    console.log(data);
     postRequest(webhook, data)
   }
 } catch (error) {
