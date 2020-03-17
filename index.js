@@ -34,6 +34,7 @@ try {
 
     //console.log(text);
     console.log(data);
+    console.log(webhook);
     postRequest(webhook, data)
   }
 } catch (error) {
