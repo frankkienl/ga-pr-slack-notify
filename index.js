@@ -2,49 +2,44 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 const https = require('https');
 
-run();
+try {
+  const webhook = core.getInput('webhook');
 
-export async function run() {
-  try {
-    const webhook = core.getInput('webhook');
+  const payload = github.context.payload;
 
-    const payload = github.context.payload;
+  //console.log("payload.pull_request");
+  //console.log(payload.pull_request);
 
-    console.log("payload.pull_request");
-    console.log(payload.pull_request);
+  if (github.context.eventName === "pull_request"){
+    const success = core.getInput('success');
 
-    if (github.context.eventName === "pull_request") {
-      const success = core.getInput('success');
+    let iconUrl = "https://raw.githubusercontent.com/frankkienl/ga-pr-slack-notify/master/";
 
-      let iconUrl = "https://raw.githubusercontent.com/frankkienl/ga-pr-slack-notify/master/";
+    let text = `*PR:* <${payload.pull_request._links.html.href}|#${payload.pull_request.number} - ${payload.pull_request.title}>\n`;
+    text += `*By:* ${github.context.actor}\n`;
 
-      let text = `*PR:* <${payload.pull_request._links.html.href}|#${payload.pull_request.number} - ${payload.pull_request.title}>\n`;
-      text += `*By:* ${github.context.actor}\n`;
-
-      if (success === 'true' || success === true) {
-        text += `*Build success!*\n`;
-        iconUrl += "icon_build_success.png";
-      } else {
-        text += `*Build failed!*\n`;
-        iconUrl += "icon_build_failed.png";
-      }
-
-      //POST Request
-      const data = JSON.stringify({
-        text: text,
-        icon_url: iconUrl
-      });
-
-      //console.log(text);
-      console.log(data);
-      console.log(webhook);
-      postRequest(webhook, data)
+    if (success === 'true' || success === true){
+      text += `*Build success!*\n`;
+      iconUrl += "icon_build_success.png";
+    } else {
+      text += `*Build failed!*\n`;
+      iconUrl += "icon_build_failed.png";
     }
-  } catch (error) {
-    core.setFailed(error.message)
-  }
-}
 
+    //POST Request
+    const data = JSON.stringify({
+      text: text,
+      icon_url: iconUrl
+    });
+
+    //console.log(text);
+    console.log(data);
+    console.log(webhook);
+    postRequest(webhook, data)
+  }
+} catch (error) {
+  core.setFailed(error.message)
+}
 
 function postRequest(webhook, data) {
   const options = {
