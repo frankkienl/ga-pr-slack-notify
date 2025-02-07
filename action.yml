@@ -1,5 +1,11 @@
 name: 'PR Slack Notifier'
-description: 'Slack notification with buils status of pull request'
+description: 'Slack notification with build status of pull request'
+author: 'FrankkieNL @ Flitsmeister'
+
+branding:
+  icon: 'bell'
+  color: 'blue'
+
 inputs:
   webhook:
     description: 'Slack Webhook url'
@@ -9,6 +15,7 @@ inputs:
     description: 'use success() here'
     required: false
     default: 'true'
+
 runs:
-  using: 'node12'
+  using: 'node20'
   main: 'index.js'
