@@ -4,7 +4,7 @@ const https = require('https');
 
 run();
 
-export async function run() {
+function run() {
   try {
     const webhook = core.getInput('webhook');
 
